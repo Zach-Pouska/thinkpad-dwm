@@ -1,0 +1,150 @@
+# Hotkeys and stuff for my dwm configuration
+
+#################
+# SYNTAX EXAMPLE#
+#################
+# [MODIFIER + ]*[@|!]KEYSYM
+#    COMMAND
+
+
+
+####################
+# Super + ... Keys #
+####################
+
+# open dolphin
+super + e
+	nautilus	
+# Deadd-notification-center
+super + z 
+	kill -s USR1 $(pidof deadd-notification-center)
+# open volume mixer
+super + v
+	pavucontrol
+
+# lock the screen
+super + x
+	slock
+
+# restart / reload sxhkd
+super + alt + r
+	pkill -USR1 -x sxhkd	
+
+# rofi
+super + space 
+  rofi -show combi -show icons
+  # rofi -modi "Global Search":"/home/zach/.config/rofi-spotlight/rofi-spotlight.sh" -show "Global Search" -config /home/zach/.config/rofi-spotlight/rofi.rasi
+
+# rofi calc
+super + n
+  rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command "echo -n '{result}' | xclip"
+
+# toggle picom script
+super + alt + o
+  /home/zach/.config/dwm/picom/picom-toggle.sh
+
+
+# Pause Play
+super + Down
+	playerctl play-pause
+
+#Next 
+super + Right 
+	playerctl next
+
+#previous
+super + Left
+	playerctl previous
+
+############################
+# Super + shift + ... Keys #
+############################
+
+super + shift + f
+	firefox
+super + shift + s 
+	flameshot gui
+############################
+# Control + alt + ... Keys #
+############################
+control + alt + t
+	alacritty
+
+
+###################
+# MULTIMEDIA KEYS # 
+###################
+
+#Raises volume
+XF86AudioRaiseVolume
+	/home/zach/.config/dwm/scripts/volume-notify.sh inc &
+#amixer set Master 2%+
+
+#Lowers volume
+XF86AudioLowerVolume
+	/home/zach/.config/dwm/scripts/volume-notify.sh dec &
+# amixer set Master 2%-
+
+#Mute
+XF86AudioMute
+	/home/zach/.config/dwm/scripts/volume-notify.sh mute &
+# amixer -D pulse set Master 1+ toggle
+
+
+#Playerctl works for Pragha, Spotify and others
+#Delete the line for playerctl if you want to use mpc
+#and replace it with the corresponding code
+#mpc works for e.g.ncmpcpp
+#mpc toggle
+#mpc next
+#mpc prev
+#mpc stop
+
+
+#PLAY
+XF86AudioPlay
+  playerctl play-pause
+
+#Next
+XF86AudioNext
+  playerctl next
+
+#previous
+XF86AudioPrev
+  playerctl previous
+
+#Stop
+XF86AudioStop
+  playerctl stop
+
+#Brightness up
+XF86MonBrightnessUp
+	/home/zach/.config/dwm/scripts/brightness-notify.sh inc &
+#  xbacklight -fps 60 -inc 5
+
+#Brightness down
+XF86MonBrightnessDown
+	/home/zach/.config/dwm/scripts/brightness-notify.sh dec &
+#  xbacklight -fps 60 -dec 5
+
+#Brightness up but smaller
+shift + XF86MonBrightnessUp
+  xbacklight -fps 60 -inc 1 && /home/zach/.config/dwm/scripts/brightness-notify.sh &
+#Brightness down
+shift + XF86MonBrightnessDown
+  xbacklight -fps 60 -dec 1 && /home/zach/.config/dwm/scripts/brightness-notify.sh &
+
+
+
+############# 
+# Utilities #
+############# 
+
+# flameshot selection
+control + Print 
+  flameshot gui 
+
+# flameshot whole screen copy 
+Print
+  flameshot full -c
+
