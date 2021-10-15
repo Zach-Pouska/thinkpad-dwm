@@ -1,5 +1,15 @@
 # My config of suckless's DWM for my ThinkPad T480
 
+## Patches:
+- dwm-autostart
+- centeredmaster 
+- fullgaps
+- movestack
+- dwm-systray
+
+### To be patched in:
+- statuscmd
+
 
 ## Programs Used: 
 - SXHKD
