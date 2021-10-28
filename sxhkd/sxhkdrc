@@ -33,7 +33,10 @@ super + alt + r
 # rofi
 super + space 
   rofi -show combi -show icons
-  # rofi -modi "Global Search":"/home/zach/.config/rofi-spotlight/rofi-spotlight.sh" -show "Global Search" -config /home/zach/.config/rofi-spotlight/rofi.rasi
+
+# rofi spotlight
+alt + space
+  rofi -modi "Global Search":"/home/zach/.config/rofi-spotlight/rofi-spotlight.sh" -show "Global Search" -config /home/zach/.config/rofi-spotlight/rofi.rasi
 
 # rofi calc
 super + n
